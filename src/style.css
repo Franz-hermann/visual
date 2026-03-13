@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;600;700&display=swap");
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, "Segoe UI", sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--color-text-main);
+  background: var(--color-page-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* 主题变量：浅色默认 */
+  --color-page-bg: #f5f5f7;
+  --color-text-main: #111827;
+  --color-text-muted: #6b7280;
+  --color-panel-bg: #ffffff;
+  --color-panel-border: rgba(15, 23, 42, 0.06);
+}
+
+:root.dark {
+  --color-page-bg: #05070d;
+  --color-text-main: rgba(249, 250, 251, 0.96);
+  --color-text-muted: rgba(156, 163, 175, 0.92);
+  --color-panel-bg: rgba(15, 17, 22, 0.96);
+  --color-panel-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+#app {
+  min-height: 100%;
+}
+
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+
+/* ===== 表格通用：自适应 + 内容限制在单元格内 ===== */
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* 强制列宽参与约束，避免内容把表格撑破 */
+}
+
+th,
+td {
+  max-width: 0; /* 配合 table-layout: fixed，允许省略号生效 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* 容器内存在表格时，让它在容器里滚动而不是溢出 */
+.tableWrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: auto;
+}
+
